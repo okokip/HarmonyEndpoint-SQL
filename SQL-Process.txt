@@ -1,0 +1,4 @@
+Query the historical process information with datedate conversion
+
+SELECT DATETIME(ROUND(PCT / 1000), 'unixepoch') AS createtime, DATETIME(ROUND(PTT / 1000), 'unixepoch') AS terminatetime, PID, PName, User, Signer FROM PsOpFlat
+ORDER BY createtime DESC;

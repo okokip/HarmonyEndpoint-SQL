@@ -1,5 +1,15 @@
-Historical process information with datedate conversion:
+-----------------------------------------------------------------------------------------------------
+Historical process information with datetime conversion:
 
 SELECT DATETIME(ROUND(PCT / 1000), 'unixepoch') AS createtime, DATETIME(ROUND(PTT / 1000), 'unixepoch') AS terminatetime, PID, PName, User, Signer FROM PsOpFlat
 ORDER BY createtime DESC;
 
+-----------------------------------------------------------------------------------------------------
+Historical DNS query information:
+
+SELECT DATETIME(ROUND(DnsOp.Time / 1000), 'unixepoch') AS query_time,PsOpFlat.PName, DnsRequest, DnsResponse FROM DnsOp
+JOIN PsOpFlat
+ON DnsOp.Ps_ID = PsOpFlat.Ps_RID
+ORDER BY query_time ASC;
+
+------------------------------------------------------------------------------------------------------

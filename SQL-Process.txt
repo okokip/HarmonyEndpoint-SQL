@@ -13,3 +13,12 @@ ON DnsOp.Ps_ID = PsOpFlat.Ps_RID
 ORDER BY query_time ASC;
 
 ------------------------------------------------------------------------------------------------------
+Query the file hash:
+
+SELECT Files.RID, Files.Name, FileExtra.MD5  FROM FileExtra
+JOIN Files
+ON FileExtra.RID = Files.RID
+WHERE MD5 LIKE '%'
+
+-------------------------------------------------------------------------------------------------------
+

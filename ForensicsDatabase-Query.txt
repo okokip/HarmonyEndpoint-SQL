@@ -21,4 +21,10 @@ ON FileExtra.RID = Files.RID
 WHERE MD5 LIKE '%'
 
 -------------------------------------------------------------------------------------------------------
+Query the file operation with datetime conversion:
 
+SELECT DATETIME(ROUND(OpenTime/ 1000), 'unixepoch') AS opentime, DATETIME(ROUND(CloseTime / 1000), 'unixepoch') AS closetime, FileName,FilePath, PName FROM FileOpFlat
+WHERE FilePath LIKE '%'
+ORDER BY opentime DESC;
+
+-------------------------------------------------------------------------------------------------------
